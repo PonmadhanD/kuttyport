@@ -1,0 +1,197 @@
+Design a full web platform called **Kutty Port** — an AI + IoT powered export logistics system helping small and medium exporters (MSMEs) go global.
+
+🎨 DESIGN STYLE & THEME:
+- Look & Feel: Futuristic logistics + startup-friendly
+- Colors: Deep Blue (#003366), Aqua Green (#00C4B3), White (#FFFFFF)
+- Fonts: Poppins / Inter / Roboto
+- Rounded corners (16px+), soft shadows, clean layout
+- Icon set: Lucide / Feather
+- Consistent fixed header and footer across all pages
+- Theme tone: “Think Local, Ship Global”
+
+---
+
+## 🏠 PUBLIC WEBSITE (Before Login)
+
+### HEADER (Fixed)
+Left: Kutty Port logo + Title  
+Below: Slogan → “Think Local, Ship Global”  
+Right: Navigation → Home | About | Platform | Technology | Contact | Login / Signup Buttons
+
+### 1️⃣ HOME PAGE
+**Sections (Top to Bottom):**
+1. Hero Banner
+   - Left: Headline → “Empowering Small Exporters to Go Global”
+   - Subtext: “AI + IoT powered logistics network for MSMEs, from your doorstep to port.”
+   - CTA Buttons: [Get Started] [Join as Exporter]
+   - Right: Animated 3D cargo flow map
+
+2. Why Choose Us
+   - Left: Image | Right: Key Points:
+     - End-to-End Shipping Simplified
+     - Transparent Pricing
+     - AI-Powered Real-Time Tracking
+     - Seamless Document & Customs Support
+
+3. Who We Are / Mission
+   - Right Image | Left Content:
+     “We’re building the next-gen export ecosystem for small businesses — connecting local entrepreneurs to global markets.”
+
+4. Our Services
+   - 6 Card Grid:
+     Doorstep Pickup | Smart Hub Network | Real-Time Tracking | Customs Assistance | Insurance & Security | AI-Driven Analytics
+
+5. Major Clients Carousel
+   - 9 Exporter Cards: Photo + Name + Type (“Organic Oils – Salem”)
+
+6. Hub Model Illustration
+   - Interactive Diagram: Customer → Local Hub → Regional Hub → Port Hub → Export
+   - Highlight: “Faster | Smarter | Greener Export Chain”
+
+7. Testimonials / Success Stories
+
+8. Footer
+   - Left: Logo + slogan + short description
+   - Center: Quick Links (Home | About | Platform | Contact)
+   - Right: “Connect with Us” → phone, email, LinkedIn icons
+
+---
+
+### 2️⃣ ABOUT US PAGE
+Sections:
+- Intro: “We’re transforming small exports through AI, automation, and logistics intelligence.”
+- Vision: “Empower every small exporter in India to access global trade effortlessly.”
+- Mission: “Build a connected logistics ecosystem bridging MSMEs and ports efficiently.”
+- Why We’re Here: Problems faced by MSMEs (delays, costs, lack of export support)
+- Core Values: Innovation | Accessibility | Transparency | Empowerment
+- Our Journey: Timeline (Year Founded → First Hub → Expansion → AI Integration)
+- Optional: Team Section (Founders & Advisors photos)
+
+---
+
+### 3️⃣ PLATFORM PAGE
+Headline: “Choose Your Portal”
+Show 3 Cards:
+1. Customer Login → Book, Track, Manage Shipments  
+2. Delivery Partner Login → Manage Routes & Deliveries  
+3. Admin / Employee Login → Manage Operations  
+Each card on hover → show description + Login / Signup button  
+On click → relevant login page
+
+---
+
+### 4️⃣ TECHNOLOGY PAGE
+Headline: “Smart, Scalable & MSME-Friendly Export Technology”
+Intro: “At Kutty Port, we simplify shipping with intelligent AI + IoT systems.”
+
+Sections:
+- AI & Automation → Smart routing, shipment prediction, anomaly detection
+- Cloud Infrastructure (AWS/Azure) → Real-time sync, scalable, secure
+- IoT & Smart Sensors → Cargo condition (temperature, humidity), live tracking
+- Data Analytics & BI → Dashboards for exporter performance & delay patterns
+- ERP Integration → Customs, billing, inventory sync
+- Cybersecurity → Encrypted data & secure transactions
+End Section: “Why Choose Our Tech” → Scalable | Future-Ready | Affordable | Cloud-Based
+
+---
+
+### 5️⃣ CONTACT PAGE
+Left: Contact Form → Name | Designation | Email | Phone | Subject | Message | [Send Message]  
+Right: Embedded Map (Coimbatore Hub)  
+Below: Support Email + Hotline  
+
+---
+
+### 6️⃣ LOGIN / SIGNUP PAGE
+Split Layout:
+- Left: Logo + slogan + short description (benefits of Kutty Port)
+- Right: Login / Signup Form:
+  - Fields: Email, Password
+  - Buttons: [Login] / [Register]
+  - “Switch Role” Toggle → Customer | Delivery Partner | Employee | Admin
+  - “Forgot Password?”
+Background: Modern gradient (Blue → Aqua) with cargo port graphics
+
+---
+
+## 🔐 AFTER LOGIN DASHBOARDS
+
+### 1️⃣ CUSTOMER DASHBOARD
+Header: Logo (Left) | Profile (Right)  
+Sidebar: Dashboard | Book Shipment | Tracking | AI Assistant | Insurance | Support | Profile  
+
+Widgets:
+- Invoice Summary
+- Active Shipments
+- Shipment History
+- Graph: Monthly Export Volume
+- Support Ticket Status
+
+Book Shipment:
+- Step-by-step form: Pickup → Package → Documents → Payment → Confirmation
+- Options: Doorstep Pickup | Hub Drop | Insurance Add-on
+- AI Estimation of Cost & Delivery Time
+
+Tracking Page:
+- Live Map (Google Maps API)
+- Hub Timeline Status
+- Delivery Partner Info
+- Customs Updates
+- Container/Vessel Tracking
+
+AI Assistant:
+- Chatbot (“Where is my package?”, “Docs for export to Dubai?”)
+
+---
+
+### 2️⃣ DELIVERY PARTNER DASHBOARD
+Onboarding:
+- Upload Licence, RC, Vehicle Type  
+- Choose Shift: Customer↔Hub (Morning/Evening) | Hub↔Hub (Night 8PM–8AM)
+- AI Route Suggestions + Live Map  
+- Incentive Summary & Performance Score  
+- Payment Tracking + Insurance Portal  
+- Chat with Hub Manager  
+
+Extras:
+- Route Heatmap (High-Demand Areas)
+- Gamified Earning Dashboard (Badges, Levels)
+- Training Completion Tracker (Safety Videos)
+
+---
+
+### 3️⃣ EMPLOYEE DASHBOARD
+Functions:
+- Manage Orders in Hub Zone
+- Assign Delivery Partners
+- Approve Shipments / Update Hub Status
+- Customer Query Handling
+- Performance Reports
+- Internal Chat with Team
+
+Extras:
+- Smart Alerts for Delays
+- Task Board with Daily Targets
+- Hub Analytics View
+
+---
+
+### 4️⃣ ADMIN DASHBOARD
+Controls Entire Ecosystem:
+- View all Shipments, Hubs, Customers, Employees
+- Approve New Partners/Employees
+- AI Analytics Panels: Revenue, Growth, Efficiency, Route Optimization
+- Manage Complaints & Issues
+- Role & Access Control
+
+Extras:
+- Predictive Analytics (Demand Forecasting)
+- Hub Heatmap Visualization
+- Compliance/Document Expiry Auto Alerts
+
+---
+
+⚙️ OVERALL DESIGN GOAL:
+Create a **connected, AI-driven export management system UI** — from public awareness (marketing pages) to logistics operations (dashboards).  
+Maintain consistent brand tone, modern animations, and intuitive navigation across all sections.  
+Design should feel **smart, scalable, and MSME-friendly**, with a clean, tech-inspired visual language.

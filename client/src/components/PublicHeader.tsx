@@ -18,14 +18,28 @@ export function PublicHeader() {
   const isActive = (path: string) => location === path;
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 overflow-hidden">
       <div className="container mx-auto max-w-7xl">
-        <div className="flex h-20 items-center justify-between px-4">
+        {/* Background Image Element */}
+        <div className="absolute right-0 top-0 h-full w-1/3">
+          <img 
+            src="/images/Im1.png" 
+            alt="" 
+            className="h-full w-full object-cover object-left opacity-10"
+          />
+        </div>
+        
+        <div className="relative z-10">
+          <div className="flex h-20 items-center justify-between px-4">
           {/* Logo and Slogan */}
           <Link href="/" data-testid="link-home">
             <div className="flex items-center space-x-3 cursor-pointer hover-elevate active-elevate-2 p-2 rounded-lg -ml-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
-                <Ship className="h-6 w-6 text-primary-foreground" />
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg overflow-hidden">
+                <img 
+                  src="/favicon.png" 
+                  alt="Kutty Port Logo" 
+                  className="h-full w-full object-contain"
+                />
               </div>
               <div className="flex flex-col">
                 <span className="font-bold text-xl text-foreground font-sans" style={{ fontFamily: 'Poppins, sans-serif' }}>
@@ -54,7 +68,7 @@ export function PublicHeader() {
             ))}
           </nav>
 
-          {/* Auth Buttons - Desktop */}
+          {/* Auth Buttons */}
           <div className="hidden md:flex items-center space-x-3">
             <a href="/api/login" data-testid="button-login">
               <Button variant="ghost" size="sm" className="font-medium">
@@ -81,6 +95,7 @@ export function PublicHeader() {
               <Menu className="h-6 w-6" />
             )}
           </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}

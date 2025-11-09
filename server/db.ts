@@ -1,15 +1,27 @@
-import { Pool, neonConfig } from '@neondatabase/serverless';
-import { drizzle } from 'drizzle-orm/neon-serverless';
-import ws from "ws";
+import { db } from './firebase';
 import * as schema from "@shared/schema";
 
-neonConfig.webSocketConstructor = ws;
+// Export Firestore instance and schema
+export { db, schema };
 
-if (!process.env.DATABASE_URL) {
-  throw new Error(
-    "DATABASE_URL must be set. Did you forget to provision a database?",
-  );
-}
+// Helper function to get a typed collection reference
+export const getCollection = <T>(collectionName: string) => 
+  db.collection(collectionName).withConverter<T>({
+    toFirestore: (data: any) => {
+      const { id, ...rest } = data;
+      return rest;
+    },
+    fromFirestore: (snapshot: any): T => {
+      const data = snapshot.data();
+      return {
+        id: snapshot.id,
+        ...data,
+      } as T;
+    },
+  });
 
-export const pool = new Pool({ connectionString: process.env.DATABASE_URL });
-export const db = drizzle({ client: pool, schema });
+// Example collection references
+export const collections = {
+  users: getCollection<any>('users'),
+  // Add other collections as needed
+};

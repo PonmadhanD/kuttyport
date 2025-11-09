@@ -128,31 +128,54 @@ export default function Technology() {
         <section className="py-20 bg-background">
           <div className="container mx-auto max-w-7xl px-4">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {technologies.map((tech, index) => (
-                <Card key={index} className="hover-elevate transition-all duration-300 border-2" data-testid={`card-tech-${index}`}>
-                  <CardContent className="p-8 space-y-4">
-                    <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center">
-                      <tech.icon className="h-8 w-8 text-primary" />
+              {technologies.map((tech, index) => {
+                // Map each card to its corresponding image (Im6 to Im11)
+                const imageNumber = index + 6; // 6-11 for Im6 to Im11
+                const imagePath = `/Im${imageNumber}.png`;
+                
+                return (
+                  <div key={index} className="relative group rounded-xl overflow-hidden h-full">
+                    {/* Background Image with Overlay */}
+                    <div className="absolute inset-0 z-0">
+                      <img 
+                        src={imagePath} 
+                        alt="" 
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-black/60 group-hover:bg-black/70 transition-colors duration-300" />
                     </div>
-                    <h3 className="text-xl font-semibold text-foreground" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                      {tech.title}
-                    </h3>
-                    <p className="text-muted-foreground" style={{ fontFamily: 'Inter, sans-serif' }}>
-                      {tech.description}
-                    </p>
-                    <ul className="space-y-2 pt-4">
-                      {tech.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-start space-x-2">
-                          <div className="h-1.5 w-1.5 rounded-full bg-ring flex-shrink-0 mt-2" />
-                          <span className="text-sm text-muted-foreground" style={{ fontFamily: 'Inter, sans-serif' }}>
-                            {feature}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              ))}
+                    
+                    {/* Content */}
+                    <Card className="border-0 bg-transparent shadow-none h-full">
+                      <CardContent className="p-8 space-y-4 relative z-10">
+                        <div className="h-14 w-14 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                          <tech.icon className="h-8 w-8 text-white" />
+                        </div>
+                        <h3 className="text-2xl font-semibold text-white" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                          {tech.title}
+                        </h3>
+                        <p className="text-white/90" style={{ fontFamily: 'Inter, sans-serif' }}>
+                          {tech.description}
+                        </p>
+                        <ul className="space-y-3 pt-4">
+                          {tech.features.map((feature, idx) => (
+                            <li key={idx} className="flex items-start space-x-2 group-hover:translate-x-1 transition-transform duration-200">
+                              <div className="h-2 w-2 rounded-full bg-white mt-2 flex-shrink-0" />
+                              <span className="text-sm text-white/80 group-hover:text-white transition-colors duration-200" style={{ fontFamily: 'Inter, sans-serif' }}>
+                                {feature}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+                        
+                        {/* Decorative elements */}
+                        <div className="absolute -bottom-2 -right-2 h-4 w-4 rounded-tl-full bg-white/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div className="absolute -top-2 -left-2 h-4 w-4 rounded-br-full bg-white/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>

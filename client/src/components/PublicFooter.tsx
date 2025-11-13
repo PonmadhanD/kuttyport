@@ -1,102 +1,157 @@
 import { Link } from "wouter";
-import { Ship, Mail, Phone, Linkedin } from "lucide-react";
+import { Globe, BookOpen, Mail, Phone, Clock, Linkedin } from 'lucide-react';
 
-export function PublicFooter() {
-  const quickLinks = [
-    { label: "Home", path: "/" },
-    { label: "About", path: "/about" },
-    { label: "Platform", path: "/platform" },
-    { label: "Technology", path: "/technology" },
-    { label: "Contact", path: "/contact" },
-  ];
+/**
+ * Kutty Port Footer Component
+ * Focus: Network, Expertise, and Support for MSME Exporters
+ */
+export const PublicFooter = () => {
+    const contactInfo = {
+        email: 'ponmadhan1122@gmail.com',
+        phone: '+91 9943244490',
+        linkedin: 'https://www.linkedin.com/in/ponmadhan-d'
+    };
 
-  return (
-    <footer className="w-full bg-primary text-primary-foreground">
-      <div className="container mx-auto max-w-7xl px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {/* Left: Logo + Slogan + Description */}
-          <div className="space-y-4">
-            <div className="flex items-center space-x-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-ring">
-                <Ship className="h-6 w-6 text-primary" />
-              </div>
-              <div className="flex flex-col">
-                <span className="font-bold text-xl" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                  Kutty Port
-                </span>
-                <span className="text-sm opacity-90" style={{ fontFamily: 'Inter, sans-serif' }}>
-                  Think Local, Ship Global
-                </span>
-              </div>
+    return (
+        <footer className="bg-gradient-to-br from-blue-800 to-blue-600 text-blue-100 pt-16 pb-6 shadow-2xl">
+            <div className="container mx-auto px-4 max-w-7xl">
+                {/* Main Grid: 4 Pillars */}
+                <div className="grid grid-cols-2 gap-y-10 md:grid-cols-4 md:gap-8">
+                    {/* Pillar 1: Company & Mission */}
+                    <div className="col-span-2 md:col-span-1 space-y-4 pr-8">
+                        <span className="text-3xl font-bold text-blue-100">Kutty Port</span>
+                        <p className="text-sm font-medium text-blue-100/90 mt-2 leading-relaxed">
+                            Empowering small and medium exporters with AI-powered logistics solutions.
+                        </p>
+                        <blockquote className="border-l-4 border-blue-300 pl-3 italic text-lg text-white">
+                            Think Local, Ship Global.
+                        </blockquote>
+                        <a 
+                            href={contactInfo.linkedin} 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="inline-flex items-center space-x-2 text-white hover:text-blue-200 transition-colors duration-200"
+                        >
+                            <Linkedin className="w-5 h-5" />
+                            <span className="text-sm font-semibold">Connect on LinkedIn</span>
+                        </a>
+                    </div>
+
+                    {/* Pillar 2: The Network (Global Reach) */}
+                    <div>
+                        <h4 className="text-lg font-semibold text-white mb-4 flex items-center">
+                            <Globe className="w-5 h-5 mr-2 text-blue-200" />
+                            Our Global Reach
+                        </h4>
+                        <ul className="space-y-3 text-sm">
+                            {[
+                                { text: 'India Hubs (Mumbai, Chennai, JNPT)', url: '/hubs' },
+                                { text: 'Target Markets', url: '/markets' },
+                                { text: 'Partner Network', url: '/partners' },
+                                { text: 'Track Shipment', url: '/tracking' }
+                            ].map((item, index) => (
+                                <li key={index}>
+                                    <Link 
+                                        href={item.url} 
+                                        className="hover:text-blue-200 transition-colors duration-200 flex items-center"
+                                    >
+                                        <span className="w-1.5 h-1.5 rounded-full bg-blue-200 mr-2"></span>
+                                        {item.text}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    {/* Pillar 3: Expertise & Resources */}
+                    <div>
+                        <h4 className="text-lg font-semibold text-white mb-4 flex items-center">
+                            <BookOpen className="w-5 h-5 mr-2 text-blue-200" />
+                            Exporter Resources
+                        </h4>
+                        <ul className="space-y-3 text-sm">
+                            <li>
+                                <Link 
+                                    href="/customs-guide" 
+                                    className="hover:text-blue-200 transition-colors duration-200 flex items-center font-semibold text-yellow-300"
+                                >
+                                    <span className="w-1.5 h-1.5 rounded-full bg-yellow-300 mr-2"></span>
+                                    Customs Guide 
+                                    <span className="text-xs text-red-300 font-bold ml-1">(NEW)</span>
+                                </Link>
+                            </li>
+                            {[
+                                { text: 'Export FAQs', url: '/faq' },
+                                { text: 'Blog / Case Studies', url: '/blog' },
+                                { text: 'Technology & AI', url: '/technology' }
+                            ].map((item, index) => (
+                                <li key={index}>
+                                    <Link 
+                                        href={item.url} 
+                                        className="hover:text-blue-200 transition-colors duration-200 flex items-center"
+                                    >
+                                        <span className="w-1.5 h-1.5 rounded-full bg-blue-200 mr-2"></span>
+                                        {item.text}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    {/* Pillar 4: Support & Contact */}
+                    <div className="space-y-4">
+                        <h4 className="text-lg font-semibold text-white mb-4">
+                            Get in Touch
+                        </h4>
+                        <div className="space-y-3">
+                            <div className="flex items-center space-x-2">
+                                <Mail className="w-5 h-5 text-blue-200 flex-shrink-0" />
+                                <a 
+                                    href={`mailto:${contactInfo.email}`} 
+                                    className="text-sm hover:text-blue-200 transition-colors duration-200 truncate"
+                                >
+                                    {contactInfo.email}
+                                </a>
+                            </div>
+                            <div className="flex items-center space-x-2">
+                                <Phone className="w-5 h-5 text-blue-200 flex-shrink-0" />
+                                <a 
+                                    href={`tel:${contactInfo.phone.replace(/\s+/g, '')}`} 
+                                    className="text-sm hover:text-blue-200 transition-colors duration-200 whitespace-nowrap"
+                                >
+                                    {contactInfo.phone}
+                                </a>
+                            </div>
+                            <div className="flex items-center space-x-2">
+                                <Clock className="w-5 h-5 text-blue-200 flex-shrink-0" />
+                                <span className="text-sm">Mon-Fri, 9:00 AM - 6:00 PM IST</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                {/* Bottom Bar (Legal Strip) */}
+                <div className="border-t border-blue-500/30 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center text-sm text-blue-200/80">
+                    <p className="order-2 md:order-1 mt-4 md:mt-0">
+                        &copy; {new Date().getFullYear()} Kutty Port. All rights reserved.
+                    </p>
+                    <div className="order-1 md:order-2 flex space-x-4">
+                        <Link 
+                            href="/privacy" 
+                            className="hover:text-white transition-colors duration-200"
+                        >
+                            Privacy Policy
+                        </Link>
+                        <Link 
+                            href="/terms" 
+                            className="hover:text-white transition-colors duration-200"
+                        >
+                            Terms of Service
+                        </Link>
+                    </div>
+                </div>
             </div>
-            <p className="text-sm opacity-80 max-w-xs" style={{ fontFamily: 'Inter, sans-serif' }}>
-              Empowering small and medium exporters with AI-powered logistics solutions. 
-              From your doorstep to global ports, we make exporting seamless.
-            </p>
-          </div>
-
-          {/* Center: Quick Links */}
-          <div>
-            <h3 className="font-semibold text-lg mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
-              Quick Links
-            </h3>
-            <div className="grid grid-cols-2 gap-3">
-              {quickLinks.map((link) => (
-                <Link 
-                  key={link.path} 
-                  href={link.path}
-                  className="text-sm opacity-80 hover:opacity-100 transition-opacity hover-elevate p-2 rounded-md inline-block" 
-                  style={{ fontFamily: 'Inter, sans-serif' }}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          {/* Right: Connect with Us */}
-          <div>
-            <h3 className="font-semibold text-lg mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
-              Connect with Us
-            </h3>
-            <div className="space-y-3">
-              <a
-                href="mailto:support@kuttyport.com"
-                className="flex items-center space-x-3 text-sm opacity-80 hover:opacity-100 transition-opacity hover-elevate p-2 rounded-md"
-                data-testid="link-email"
-              >
-                <Mail className="h-5 w-5" />
-                <span style={{ fontFamily: 'Inter, sans-serif' }}>support@kuttyport.com</span>
-              </a>
-              <a
-                href="tel:+911234567890"
-                className="flex items-center space-x-3 text-sm opacity-80 hover:opacity-100 transition-opacity hover-elevate p-2 rounded-md"
-                data-testid="link-phone"
-              >
-                <Phone className="h-5 w-5" />
-                <span style={{ fontFamily: 'Inter, sans-serif' }}>+91 123 456 7890</span>
-              </a>
-              <a
-                href="https://linkedin.com/company/kuttyport"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center space-x-3 text-sm opacity-80 hover:opacity-100 transition-opacity hover-elevate p-2 rounded-md"
-                data-testid="link-linkedin"
-              >
-                <Linkedin className="h-5 w-5" />
-                <span style={{ fontFamily: 'Inter, sans-serif' }}>LinkedIn</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom Copyright */}
-        <div className="mt-12 pt-8 border-t border-primary-foreground/20 text-center">
-          <p className="text-sm opacity-70" style={{ fontFamily: 'Inter, sans-serif' }}>
-            © {new Date().getFullYear()} Kutty Port. All rights reserved.
-          </p>
-        </div>
-      </div>
-    </footer>
+        </footer>
   );
 }

@@ -42,7 +42,7 @@ export function PublicHeader() {
                 />
               </div>
               <div className="flex flex-col">
-                <span className="font-bold text-xl text-foreground font-sans" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                <span className="font-bold text-xl text-foreground" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' }}>
                   Kutty Port
                 </span>
                 <span className="text-xs text-muted-foreground font-medium" style={{ fontFamily: 'Inter, sans-serif' }}>
@@ -68,19 +68,7 @@ export function PublicHeader() {
             ))}
           </nav>
 
-          {/* Auth Buttons */}
-          <div className="hidden md:flex items-center space-x-3">
-            <a href="/api/login" data-testid="button-login">
-              <Button variant="ghost" size="sm" className="font-medium">
-                Login
-              </Button>
-            </a>
-            <a href="/api/login" data-testid="button-signup">
-              <Button size="sm" className="font-medium">
-                Sign Up
-              </Button>
-            </a>
-          </div>
+          {/* Auth Buttons - Removed as per request */}
 
           {/* Mobile Menu Button */}
           <button
@@ -114,18 +102,7 @@ export function PublicHeader() {
                   </Button>
                 </Link>
               ))}
-              <div className="pt-4 flex flex-col space-y-2">
-                <a href="/api/login" className="w-full">
-                  <Button variant="ghost" className="w-full font-medium" data-testid="mobile-button-login">
-                    Login
-                  </Button>
-                </a>
-                <a href="/api/login" className="w-full">
-                  <Button className="w-full font-medium" data-testid="mobile-button-signup">
-                    Sign Up
-                  </Button>
-                </a>
-              </div>
+              {/* Mobile auth buttons removed */}
             </nav>
           </div>
         )}

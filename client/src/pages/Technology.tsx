@@ -20,6 +20,7 @@ export default function Technology() {
       icon: Brain,
       title: "AI & Automation",
       description: "Advanced machine learning algorithms power our smart routing, predictive analytics, and automated decision-making systems.",
+      color: "from-purple-500 to-blue-500",
       features: [
         "Smart route optimization for faster deliveries",
         "Predictive shipment arrival times",
@@ -31,6 +32,7 @@ export default function Technology() {
       icon: Cloud,
       title: "Cloud Infrastructure",
       description: "Built on enterprise-grade cloud platforms (AWS/Azure) ensuring scalability, reliability, and 99.9% uptime.",
+      color: "from-blue-500 to-cyan-500",
       features: [
         "Real-time data synchronization",
         "Auto-scaling for peak demand",
@@ -42,6 +44,7 @@ export default function Technology() {
       icon: Radio,
       title: "IoT & Smart Sensors",
       description: "Internet of Things devices monitor your cargo conditions in real-time throughout the entire journey.",
+      color: "from-emerald-500 to-teal-500",
       features: [
         "Temperature and humidity monitoring",
         "GPS location tracking",
@@ -53,6 +56,7 @@ export default function Technology() {
       icon: BarChart3,
       title: "Data Analytics & BI",
       description: "Powerful business intelligence dashboards provide actionable insights for exporters and partners.",
+      color: "from-amber-500 to-orange-500",
       features: [
         "Export performance metrics",
         "Delay pattern analysis",
@@ -64,6 +68,7 @@ export default function Technology() {
       icon: Database,
       title: "ERP Integration",
       description: "Seamless integration with your existing systems for customs, billing, and inventory management.",
+      color: "from-indigo-500 to-violet-500",
       features: [
         "Automated customs documentation",
         "Real-time billing synchronization",
@@ -75,6 +80,7 @@ export default function Technology() {
       icon: Shield,
       title: "Cybersecurity",
       description: "Enterprise-level security protocols protect your sensitive data and ensure safe transactions.",
+      color: "from-rose-500 to-pink-500",
       features: [
         "End-to-end data encryption",
         "Multi-factor authentication",
@@ -89,15 +95,18 @@ export default function Technology() {
       icon: Zap,
       title: "Scalable",
       description: "Grows with your business from 10 to 10,000 shipments",
+      color: "text-blue-500",
     },
     {
       icon: TrendingUp,
       title: "Future-Ready",
       description: "Continuous updates with latest technology advances",
+      color: "text-emerald-500",
     },
     {
       icon: Globe,
       title: "Affordable",
+      color: "text-amber-500",
       description: "Enterprise capabilities at MSME-friendly prices",
     },
     {
@@ -170,7 +179,6 @@ export default function Technology() {
                         
                         {/* Decorative elements */}
                         <div className="absolute -bottom-2 -right-2 h-4 w-4 rounded-tl-full bg-white/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        <div className="absolute -top-2 -left-2 h-4 w-4 rounded-br-full bg-white/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       </CardContent>
                     </Card>
                   </div>
@@ -180,77 +188,76 @@ export default function Technology() {
           </div>
         </section>
 
-        {/* Why Choose Our Tech */}
-        <section className="py-20 bg-card">
+        {/* Benefits Section */}
+        <section id="benefits" className="py-20 relative bg-blue-50">
           <div className="container mx-auto max-w-7xl px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-foreground mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-gray-900 mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
                 Why Choose Our Technology
               </h2>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto" style={{ fontFamily: 'Inter, sans-serif' }}>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto" style={{ fontFamily: 'Inter, sans-serif' }}>
                 Built specifically for MSMEs with enterprise-grade capabilities at accessible prices
               </p>
             </div>
-
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {benefits.map((benefit, index) => (
-                <div key={index} className="text-center space-y-4" data-testid={`benefit-${index}`}>
-                  <div className="h-20 w-20 rounded-2xl bg-ring/10 flex items-center justify-center mx-auto">
-                    <benefit.icon className="h-12 w-12 text-ring" />
+                <div 
+                  key={index} 
+                  className="group relative p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden"
+                  data-aos="fade-up"
+                  data-aos-delay={index * 100}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="relative z-10">
+                    <div className={`h-16 w-16 rounded-2xl bg-gradient-to-br from-blue-100 to-white shadow-md flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300 ${benefit.color || 'text-blue-500'}`}>
+                      <benefit.icon className="h-8 w-8" />
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3 text-center" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                      {benefit.title}
+                    </h3>
+                    <p className="text-gray-600 text-center" style={{ fontFamily: 'Inter, sans-serif' }}>
+                      {benefit.description}
+                    </p>
                   </div>
-                  <h3 className="text-xl font-semibold text-foreground" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                    {benefit.title}
-                  </h3>
-                  <p className="text-muted-foreground" style={{ fontFamily: 'Inter, sans-serif' }}>
-                    {benefit.description}
-                  </p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Tech Stack Visual */}
-        <section className="py-20 bg-background">
-          <div className="container mx-auto max-w-5xl px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-foreground mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                Our Technology Stack
-              </h2>
+{/* CTA Section */}
+        <section className="py-20 relative">
+          <div className="absolute inset-0 -z-10">
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-500 opacity-10 rounded-3xl"></div>
+          </div>
+          <div className="container mx-auto max-w-5xl px-4 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6" style={{ fontFamily: 'Poppins, sans-serif' }}>
+              Ready to Transform Your Export Business?
+            </h2>
+            <p className="text-xl text-gray-600 mb-10 max-w-3xl mx-auto" style={{ fontFamily: 'Inter, sans-serif' }}>
+              Join hundreds of MSMEs already growing their export business with our technology platform.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <a 
+                href="#contact" 
+                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-medium rounded-full hover:shadow-lg hover:shadow-blue-500/30 transition-all duration-300 transform hover:-translate-y-0.5"
+              >
+                Get Started for Free
+              </a>
+              <a 
+                href="#solutions" 
+                className="px-8 py-4 bg-white text-gray-800 font-medium rounded-full border-2 border-gray-200 hover:border-blue-300 transition-all duration-300 hover:shadow-md flex items-center"
+              >
+                <svg className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Watch Demo
+              </a>
             </div>
-
-            <Card className="border-2 bg-gradient-to-br from-card to-background">
-              <CardContent className="p-12">
-                <div className="space-y-8">
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-                    <div className="space-y-2">
-                      <Cloud className="h-12 w-12 text-primary mx-auto" />
-                      <p className="font-medium text-foreground" style={{ fontFamily: 'Poppins, sans-serif' }}>Cloud Platform</p>
-                      <p className="text-sm text-muted-foreground" style={{ fontFamily: 'Inter, sans-serif' }}>AWS/Azure</p>
-                    </div>
-                    <div className="space-y-2">
-                      <Brain className="h-12 w-12 text-ring mx-auto" />
-                      <p className="font-medium text-foreground" style={{ fontFamily: 'Poppins, sans-serif' }}>AI Engine</p>
-                      <p className="text-sm text-muted-foreground" style={{ fontFamily: 'Inter, sans-serif' }}>ML Algorithms</p>
-                    </div>
-                    <div className="space-y-2">
-                      <Radio className="h-12 w-12 text-chart-3 mx-auto" />
-                      <p className="font-medium text-foreground" style={{ fontFamily: 'Poppins, sans-serif' }}>IoT Layer</p>
-                      <p className="text-sm text-muted-foreground" style={{ fontFamily: 'Inter, sans-serif' }}>Smart Sensors</p>
-                    </div>
-                    <div className="space-y-2">
-                      <Database className="h-12 w-12 text-chart-4 mx-auto" />
-                      <p className="font-medium text-foreground" style={{ fontFamily: 'Poppins, sans-serif' }}>Data Platform</p>
-                      <p className="text-sm text-muted-foreground" style={{ fontFamily: 'Inter, sans-serif' }}>Analytics & BI</p>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
           </div>
         </section>
       </main>
-
       <PublicFooter />
     </div>
   );

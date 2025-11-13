@@ -2,6 +2,7 @@ import { PublicHeader } from "@/components/PublicHeader";
 import { PublicFooter } from "@/components/PublicFooter";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { useLocation } from 'wouter';
 import {
   Package,
   Truck,
@@ -11,6 +12,7 @@ import {
 } from "lucide-react";
 
 export default function Platform() {
+  const [, setLocation] = useLocation();
   const portals = [
     {
       icon: Package,
@@ -39,14 +41,14 @@ export default function Platform() {
         "Performance score and gamified rewards",
         "Direct communication with hub managers",
       ],
-      color: "from-ring to-ring/80",
-      iconBg: "bg-ring/10",
-      iconColor: "text-ring",
+      color: "from-blue-500 to-blue-400",
+      iconBg: "bg-blue-100",
+      iconColor: "text-blue-600",
       dataTestId: "card-delivery-portal",
     },
     {
       icon: Settings,
-      title: "Employee & Admin Portal",
+      title: "Managers & Admin Portal",
       description: "Complete operations management and oversight",
       features: [
         "Hub operations and shipment management",
@@ -119,12 +121,23 @@ export default function Platform() {
                     </div>
 
                     <div className="pt-4 space-y-2">
-                      <a href="/api/login" className="block">
-                        <Button className="w-full group-hover:shadow-lg transition-all" data-testid={`button-login-${index}`}>
-                          Login to Portal
-                          <ArrowRight className="ml-2 h-4 w-4" />
-                        </Button>
-                      </a>
+                      <Button 
+                        className="w-full group-hover:shadow-lg transition-all" 
+                        data-testid={`button-login-${index}`}
+                        onClick={() => {
+                          console.log('Portal title:', portal.title); // Debug log
+                          if (portal.title === 'Delivery Partner Portal') {
+                            setLocation('/delivery/dashboard');
+                          } else if (portal.title === 'Managers & Admin Portal') {
+                            setLocation('/admin/dashboard');
+                          } else {
+                            window.location.href = '/api/login';
+                          }
+                        }}
+                      >
+                        Login to Portal
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Button>
                       <a href="/api/login" className="block">
                         <Button variant="outline" className="w-full" data-testid={`button-signup-${index}`}>
                           Sign Up

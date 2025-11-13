@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { PublicHeader } from "@/components/PublicHeader";
 import { PublicFooter } from "@/components/PublicFooter";
 import { Button } from "@/components/ui/button";
@@ -5,13 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Clock,
-} from "lucide-react";
-import { useState } from "react";
+import { Mail, Phone, MapPin, Clock } from "lucide-react";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -26,21 +21,21 @@ export default function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
-    // TODO: Implement form submission
+    // TODO: Implement actual submission (e.g. API endpoint or email service)
   };
 
   const contactInfo = [
     {
       icon: Mail,
       title: "Email",
-      value: "support@kuttyport.com",
-      link: "mailto:support@kuttyport.com",
+      value: "ponmadhan1122@gmail.com",
+      link: "mailto:ponmadhan1122@gmail.com",
     },
     {
       icon: Phone,
       title: "Hotline",
-      value: "+91 123 456 7890",
-      link: "tel:+911234567890",
+      value: "+91 9943244480",
+      link: "tel:+919943244480",
     },
     {
       icon: MapPin,
@@ -64,11 +59,18 @@ export default function Contact() {
         {/* Hero Section */}
         <section className="py-20 bg-gradient-to-b from-background to-card">
           <div className="container mx-auto max-w-4xl px-4 text-center">
-            <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6" style={{ fontFamily: 'Poppins, sans-serif' }}>
+            <h1
+              className="text-5xl md:text-6xl font-bold text-foreground mb-6"
+              style={{ fontFamily: "Poppins, sans-serif" }}
+            >
               Get in Touch
             </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed" style={{ fontFamily: 'Inter, sans-serif' }}>
-              Have questions about our services? We're here to help you start shipping globally.
+            <p
+              className="text-xl text-muted-foreground leading-relaxed"
+              style={{ fontFamily: "Inter, sans-serif" }}
+            >
+              Have questions about our services? We're here to help you start
+              shipping globally.
             </p>
           </div>
         </section>
@@ -79,169 +81,298 @@ export default function Contact() {
             <div className="grid md:grid-cols-2 gap-12">
               {/* Left: Contact Form */}
               <div>
-                <h2 className="text-3xl font-bold text-foreground mb-6" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                  Send us a Message
-                </h2>
-                <Card className="border-2">
-                  <CardContent className="p-8">
-                    <form onSubmit={handleSubmit} className="space-y-6">
-                      <div className="space-y-2">
-                        <Label htmlFor="name" className="text-foreground font-medium">
-                          Name *
-                        </Label>
-                        <Input
-                          id="name"
-                          type="text"
-                          placeholder="Your full name"
-                          value={formData.name}
-                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          required
-                          className="h-12"
-                          data-testid="input-name"
-                        />
+                <div className="relative">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl blur opacity-20 transition duration-300"></div>
+
+                  <Card className="relative bg-gradient-to-br from-card to-card/80 backdrop-blur-sm border-2 border-white/10 shadow-xl overflow-hidden">
+                    <CardContent className="p-8 relative">
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full -mr-16 -mt-16"></div>
+                      <div className="absolute bottom-0 left-0 w-40 h-40 bg-blue-500/10 rounded-full -ml-20 -mb-20"></div>
+
+                      <div className="relative">
+                        <h2
+                          className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent mb-2"
+                          style={{ fontFamily: "Poppins, sans-serif" }}
+                        >
+                          Send us a Message
+                        </h2>
+                        <p
+                          className="text-muted-foreground mb-6"
+                          style={{ fontFamily: "Inter, sans-serif" }}
+                        >
+                          We'll get back to you within 24 hours
+                        </p>
+
+                        <form onSubmit={handleSubmit} className="space-y-6">
+                          {/* Name & Designation */}
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {/* Name */}
+                            <div className="space-y-2 group">
+                              <Label
+                                htmlFor="name"
+                                className="text-foreground/80 font-medium group-focus-within:text-blue-600 transition-colors"
+                              >
+                                Name *
+                              </Label>
+                              <Input
+                                id="name"
+                                type="text"
+                                placeholder="Your full name"
+                                value={formData.name}
+                                onChange={(e) =>
+                                  setFormData({
+                                    ...formData,
+                                    name: e.target.value,
+                                  })
+                                }
+                                required
+                                className="h-12 bg-background/50 border-muted-foreground/20 hover:border-muted-foreground/40 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200"
+                              />
+                            </div>
+
+                            {/* Designation */}
+                            <div className="space-y-2 group">
+                              <Label
+                                htmlFor="designation"
+                                className="text-foreground/80 font-medium group-focus-within:text-blue-600 transition-colors"
+                              >
+                                Designation
+                              </Label>
+                              <Input
+                                id="designation"
+                                type="text"
+                                placeholder="Your role/position"
+                                value={formData.designation}
+                                onChange={(e) =>
+                                  setFormData({
+                                    ...formData,
+                                    designation: e.target.value,
+                                  })
+                                }
+                                className="h-12 bg-background/50 border-muted-foreground/20 hover:border-muted-foreground/40 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200"
+                              />
+                            </div>
+
+                            {/* Email */}
+                            <div className="space-y-2 group">
+                              <Label
+                                htmlFor="email"
+                                className="text-foreground/80 font-medium group-focus-within:text-blue-600 transition-colors"
+                              >
+                                Email *
+                              </Label>
+                              <Input
+                                id="email"
+                                type="email"
+                                placeholder="you@company.com"
+                                value={formData.email}
+                                onChange={(e) =>
+                                  setFormData({
+                                    ...formData,
+                                    email: e.target.value,
+                                  })
+                                }
+                                required
+                                className="h-12 bg-background/50 border-muted-foreground/20 hover:border-muted-foreground/40 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200"
+                              />
+                            </div>
+
+                            {/* Phone */}
+                            <div className="space-y-2 group">
+                              <Label
+                                htmlFor="phone"
+                                className="text-foreground/80 font-medium group-focus-within:text-blue-600 transition-colors"
+                              >
+                                Phone *
+                              </Label>
+                              <Input
+                                id="phone"
+                                type="tel"
+                                placeholder="+91 98765 43210"
+                                value={formData.phone}
+                                onChange={(e) =>
+                                  setFormData({
+                                    ...formData,
+                                    phone: e.target.value,
+                                  })
+                                }
+                                required
+                                className="h-12 bg-background/50 border-muted-foreground/20 hover:border-muted-foreground/40 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200"
+                              />
+                            </div>
+                          </div>
+
+                          {/* Subject */}
+                          <div className="space-y-2 group">
+                            <Label
+                              htmlFor="subject"
+                              className="text-foreground/80 font-medium group-focus-within:text-blue-600 transition-colors"
+                            >
+                              Subject *
+                            </Label>
+                            <Input
+                              id="subject"
+                              type="text"
+                              placeholder="How can we help?"
+                              value={formData.subject}
+                              onChange={(e) =>
+                                setFormData({
+                                  ...formData,
+                                  subject: e.target.value,
+                                })
+                              }
+                              required
+                              className="h-12 bg-background/50 border-muted-foreground/20 hover:border-muted-foreground/40 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200"
+                            />
+                          </div>
+
+                          {/* Message */}
+                          <div className="space-y-2 group">
+                            <Label
+                              htmlFor="message"
+                              className="text-foreground/80 font-medium group-focus-within:text-blue-600 transition-colors"
+                            >
+                              Message *
+                            </Label>
+                            <Textarea
+                              id="message"
+                              placeholder="Tell us more about your export needs..."
+                              value={formData.message}
+                              onChange={(e) =>
+                                setFormData({
+                                  ...formData,
+                                  message: e.target.value,
+                                })
+                              }
+                              required
+                              className="min-h-[150px] bg-background/50 border-muted-foreground/20 hover:border-muted-foreground/40 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200 resize-none"
+                            />
+                          </div>
+
+                          {/* Submit */}
+                          <div className="pt-2">
+                            <Button
+                              type="submit"
+                              size="lg"
+                              className="w-full font-semibold bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200"
+                            >
+                              <span>Send Message</span>
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="h-5 w-5 ml-2"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                              >
+                                <path
+                                  fillRule="evenodd"
+                                  d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                                  clipRule="evenodd"
+                                />
+                              </svg>
+                            </Button>
+                          </div>
+                        </form>
                       </div>
-
-                      <div className="space-y-2">
-                        <Label htmlFor="designation" className="text-foreground font-medium">
-                          Designation
-                        </Label>
-                        <Input
-                          id="designation"
-                          type="text"
-                          placeholder="Your role/position"
-                          value={formData.designation}
-                          onChange={(e) => setFormData({ ...formData, designation: e.target.value })}
-                          className="h-12"
-                          data-testid="input-designation"
-                        />
-                      </div>
-
-                      <div className="grid md:grid-cols-2 gap-4">
-                        <div className="space-y-2">
-                          <Label htmlFor="email" className="text-foreground font-medium">
-                            Email *
-                          </Label>
-                          <Input
-                            id="email"
-                            type="email"
-                            placeholder="you@company.com"
-                            value={formData.email}
-                            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                            required
-                            className="h-12"
-                            data-testid="input-email"
-                          />
-                        </div>
-
-                        <div className="space-y-2">
-                          <Label htmlFor="phone" className="text-foreground font-medium">
-                            Phone *
-                          </Label>
-                          <Input
-                            id="phone"
-                            type="tel"
-                            placeholder="+91 98765 43210"
-                            value={formData.phone}
-                            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                            required
-                            className="h-12"
-                            data-testid="input-phone"
-                          />
-                        </div>
-                      </div>
-
-                      <div className="space-y-2">
-                        <Label htmlFor="subject" className="text-foreground font-medium">
-                          Subject *
-                        </Label>
-                        <Input
-                          id="subject"
-                          type="text"
-                          placeholder="How can we help?"
-                          value={formData.subject}
-                          onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                          required
-                          className="h-12"
-                          data-testid="input-subject"
-                        />
-                      </div>
-
-                      <div className="space-y-2">
-                        <Label htmlFor="message" className="text-foreground font-medium">
-                          Message *
-                        </Label>
-                        <Textarea
-                          id="message"
-                          placeholder="Tell us more about your export needs..."
-                          value={formData.message}
-                          onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                          required
-                          className="min-h-[150px] resize-none"
-                          data-testid="input-message"
-                        />
-                      </div>
-
-                      <Button type="submit" size="lg" className="w-full font-semibold" data-testid="button-send-message">
-                        Send Message
-                      </Button>
-                    </form>
-                  </CardContent>
-                </Card>
+                    </CardContent>
+                  </Card>
+                </div>
               </div>
 
-              {/* Right: Map & Contact Info */}
+              {/* Right: Contact Info & Map */}
               <div className="space-y-8">
                 <div>
-                  <h2 className="text-3xl font-bold text-foreground mb-6" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                  <h2
+                    className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-6"
+                    style={{ fontFamily: "Poppins, sans-serif" }}
+                  >
                     Contact Information
                   </h2>
-                  <div className="space-y-4">
+                  <div className="grid gap-4">
                     {contactInfo.map((info, index) => (
-                      <Card key={index} className="hover-elevate transition-all duration-300 border-2" data-testid={`card-contact-${index}`}>
-                        <CardContent className="p-6 flex items-center space-x-4">
-                          <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                            <info.icon className="h-6 w-6 text-primary" />
-                          </div>
-                          <div className="flex-1">
-                            <p className="text-sm text-muted-foreground mb-1" style={{ fontFamily: 'Inter, sans-serif' }}>
-                              {info.title}
-                            </p>
-                            {info.link ? (
-                              <a 
-                                href={info.link} 
-                                className="font-semibold text-foreground hover:text-primary transition-colors"
-                                style={{ fontFamily: 'Poppins, sans-serif' }}
+                      <div key={index} className="relative group">
+                        <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl blur opacity-0 group-hover:opacity-20 transition duration-300"></div>
+                        <Card 
+                          className="relative bg-gradient-to-br from-card to-card/80 backdrop-blur-sm border-2 border-white/10 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
+                        >
+                          <CardContent className="p-6 flex items-start space-x-4">
+                            <div className="h-14 w-14 rounded-xl bg-gradient-to-br from-blue-500/10 to-purple-500/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                              <info.icon className="h-6 w-6 text-blue-500 group-hover:text-purple-600 transition-colors duration-300" />
+                            </div>
+                            <div className="flex-1">
+                              <p
+                                className="text-sm font-medium text-muted-foreground mb-1.5 uppercase tracking-wider"
+                                style={{ fontFamily: "Inter, sans-serif" }}
                               >
-                                {info.value}
-                              </a>
-                            ) : (
-                              <p className="font-semibold text-foreground" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                                {info.value}
+                                {info.title}
                               </p>
-                            )}
-                          </div>
-                        </CardContent>
-                      </Card>
+                              {info.link ? (
+                                <a
+                                  href={info.link}
+                                  className="text-base font-semibold text-foreground hover:text-blue-600 transition-colors inline-flex items-center group-hover:translate-x-1 transition-transform duration-200"
+                                  style={{ fontFamily: "Poppins, sans-serif" }}
+                                >
+                                  {info.value}
+                                  <svg 
+                                    xmlns="http://www.w3.org/2000/svg" 
+                                    className="h-4 w-4 ml-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200" 
+                                    viewBox="0 0 20 20" 
+                                    fill="currentColor"
+                                  >
+                                    <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                                  </svg>
+                                </a>
+                              ) : (
+                                <p
+                                  className="text-base font-semibold text-foreground"
+                                  style={{ fontFamily: "Poppins, sans-serif" }}
+                                >
+                                  {info.value}
+                                </p>
+                              )}
+                            </div>
+                          </CardContent>
+                        </Card>
+                      </div>
                     ))}
                   </div>
                 </div>
 
-                {/* Map */}
+                {/* Map Section */}
                 <div>
-                  <h3 className="text-2xl font-bold text-foreground mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                  <h3
+                    className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent mb-4"
+                    style={{ fontFamily: "Poppins, sans-serif" }}
+                  >
                     Our Location
                   </h3>
-                  <Card className="border-2 overflow-hidden">
-                    <div className="h-96 bg-gradient-to-br from-primary/10 to-ring/10 flex items-center justify-center">
-                      <div className="text-center space-y-2">
-                        <MapPin className="h-16 w-16 text-primary mx-auto" />
-                        <p className="text-lg font-semibold text-foreground" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                          Coimbatore Hub
-                        </p>
-                        <p className="text-sm text-muted-foreground" style={{ fontFamily: 'Inter, sans-serif' }}>
-                          Tamil Nadu, India
-                        </p>
+                  <Card className="border-2 border-white/10 shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div className="h-96 w-full relative">
+                      <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125223.60310386298!2d76.860673!3d11.0065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba8582d5471c1a5%3A0x7fec1f9a4a4a4a4a!2sCoimbatore%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1630000000000!5m2!1sen!2sin"
+                        width="100%"
+                        height="100%"
+                        style={{ border: 0 }}
+                        allowFullScreen
+                        loading="lazy"
+                        className="rounded-lg"
+                        title="Coimbatore Location"
+                      />
+                      <div className="absolute bottom-4 left-0 right-0 flex justify-center">
+                        <a
+                          href="https://www.google.com/maps/place/Coimbatore,+Tamil+Nadu/@11.0065002,76.860673,12z/data=!3m1!4b1!4m5!3m4!1s0x3ba8582d5471c1a5:0x7fec1f9a4a4a4a4a!8m2!3d11.0168445!4d76.9558321"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center px-4 py-2 bg-white text-blue-700 font-medium rounded-full shadow-md hover:shadow-lg transition-all duration-200"
+                        >
+                          <MapPin className="h-5 w-5 mr-2 text-red-500" />
+                          <span className="text-sm font-semibold">View on Google Maps</span>
+                        </a>
                       </div>
+                    </div>
+                    <div className="p-4 bg-gradient-to-r from-blue-50 to-white">
+                      <p className="text-sm text-center text-gray-600" style={{ fontFamily: 'Inter, sans-serif' }}>
+                        <span className="font-semibold">Coimbatore Hub</span> • Tamil Nadu, India
+                      </p>
                     </div>
                   </Card>
                 </div>
